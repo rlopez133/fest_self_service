@@ -1,0 +1,13 @@
+---
+- name: Simplification as a Service
+  hosts: localhost
+  collections:
+    - amazon.aws
+    - rlopez.fest_demo
+
+  roles:
+  - rlopez.fest_demo.aws
+  #- rlopez.fest_demo.storage
+  #- rlopez.fest_demo.misc
+
+  
