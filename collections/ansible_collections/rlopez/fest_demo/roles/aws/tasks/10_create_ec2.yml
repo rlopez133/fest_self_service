@@ -1,21 +1,24 @@
 ---
 - name: Launch an AWS EC2 instance
   amazon.aws.ec2_instance:
+    name: "{{ my_name }}"
     key_name: "{{ key }}"
     instance_type: "{{ instance_type }}"
     image_id: "{{ image_id }}"
     region: "{{ region }}"
-    group_id: "{{ security_group }}"
+    security_group: "{{ security_group }}"
     wait: yes
     volumes:
     - device_name: "{{ device_name }}"
-      volume_type: "{{ volume_type }}"
-      volume_size: "{{ volume_size }}"
-    instance_tags:
+      ebs:
+        volume_type: "{{ volume_type }}"
+        volume_size: "{{ volume_size }}"
+    tags:
       Name: "{{ my_name }}"
       owner: "{{ owner }}"
       sleep_schedule: "{{ sleep_schedule }}"
     vpc_subnet_id: "{{ subnet_id }}"
-    assign_public_ip: no
+    network:
+      assign_public_ip: no
   
   
