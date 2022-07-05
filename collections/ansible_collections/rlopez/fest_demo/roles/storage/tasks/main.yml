@@ -1,2 +1,3 @@
 ---
 # tasks file for storage
+- include_tasks: 10_create_volume_snapshot.yml

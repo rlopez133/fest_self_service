@@ -1,0 +1,27 @@
+- name: Get volumes in a namespace and record the values
+  kubernetes.core.k8s_info:
+    api_version: v1
+    kind: PersistentVolumeClaim
+    namespace: "{{ my_namespace }}"
+  register: pvc
+  
+- name: Get the default VolumeSnapshotClass
+  kubernetes.core.k8s_info:
+    api_version: snapshot.storage.k8s.io/v1
+    kind: VolumeSnapshotClass
+  register: volumesnapshotclass
+
+- name: Create a VolumeSnapshotClass for each volume
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: snapshot.storage.k8s.io/v1
+      kind: VolumeSnapshot
+      metadata: 
+        name: "{{ item }}-{{ ansible_date_time.date }}"
+        namespace: "{{ my_namespace }}"
+      spec:
+        volumeSnapshotClassName: "{{ volumesnapshotclass | community.general.json_query('resources[0].metadata.name') }}"
+        source:
+          persistentVolumeClaimName: "{{ item }}"
+  loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
