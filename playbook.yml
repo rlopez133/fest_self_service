@@ -6,8 +6,9 @@
     - rlopez.fest_demo
 
   roles:
-  - {role: rlopez.fest_demo.aws, when: my_name is defined}
-  - {role: rlopez.fest_demo.storage, when: my_namespace is defined}
+  - rlopez.fest_demo.aws
+  #- {role: rlopez.fest_demo.aws, when: my_name is defined}
+  #- {role: rlopez.fest_demo.storage, when: my_namespace is defined}
   #- rlopez.fest_demo.misc
 
   
