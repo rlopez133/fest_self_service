@@ -1,4 +1,20 @@
 ---
+
+- name: Gather t-shirt size of VM
+  set_fact:
+    instance_type: "t2.small"
+  when: vm_choice == "small (1 vCPU, 2 GiB Memory)"
+
+- name: Gather t-shirt size of VM
+  set_fact:
+    instance_type: "t2.medium"
+  when: vm_choice == "medium (2 vCPU, 4 GiB Memory)"
+
+- name: Gather t-shirt size of VM
+  set_fact:
+    instance_type: "m4.large"
+  when: vm_choice == "large (2 vCPU, 8 GiB Memory)"
+
 - name: Launch an AWS EC2 instance
   amazon.aws.ec2_instance:
     name: "{{ my_name }}"
