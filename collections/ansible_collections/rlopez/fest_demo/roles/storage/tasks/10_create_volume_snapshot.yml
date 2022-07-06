@@ -18,10 +18,14 @@
       apiVersion: snapshot.storage.k8s.io/v1
       kind: VolumeSnapshot
       metadata: 
-        name: "{{ item }}-{{ ansible_date_time.iso8601_basic_short }}"
+        name: "{{ item }}-{{ '%Y-%m-%dT%H:%M:%S'|strftime(ansible_date_time.epoch) }}"
         namespace: "{{ my_namespace }}"
       spec:
         volumeSnapshotClassName: "{{ volumesnapshotclass | community.general.json_query('resources[0].metadata.name') }}"
         source:
           persistentVolumeClaimName: "{{ item }}"
   loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
+
+
+
+#{{ ansible_date_time.iso8601_basic_short }}
