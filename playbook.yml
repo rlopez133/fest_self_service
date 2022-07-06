@@ -4,6 +4,9 @@
   collections:
     - amazon.aws
     - rlopez.fest_demo
+    - kubernetes.core
+    - ansible.utils
+    - community.general
 
   roles:
   #- rlopez.fest_demo.aws
