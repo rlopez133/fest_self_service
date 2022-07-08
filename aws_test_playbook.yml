@@ -7,17 +7,17 @@
     - name: Download aws cli
       ansible.builtin.get_url:
         url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-        dest: "./awscliv2.zip"
+        dest: "~/awscliv2.zip"
         mode: 755
 
     - name: Unzip installer
       ansible.builtin.unarchive:
-        src: "./awscliv2.zip"
-        dest: "./"
+        src: "~/awscliv2.zip"
+        dest: "~/"
         remote_src: yes
 
     - name: Get aws version
-      ansible.builtin.shell: ./aws --version
+      ansible.builtin.shell: ~/aws --version
       register: aws
 
     - name: Debugging
