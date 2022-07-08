@@ -9,14 +9,12 @@
         url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
         dest: "/usr/local/bin/awscliv2.zip"
         mode: 755
-      become: yes
 
     - name: Unzip installer
       ansible.builtin.unarchive:
         src: "/usr/local/bin/awscliv2.zip"
         dest: "/usr/local/bin"
         remote_src: yes
-      become: yes
 
     - name: Get aws version
       ansible.builtin.shell: /usr/local/bin/aws --version
