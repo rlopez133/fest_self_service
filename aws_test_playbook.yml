@@ -4,11 +4,17 @@
   collections:
     - amazon.aws
   tasks:
+    - name: install sudo
+      ansible.builtin.package:
+        name: sudo
+        state: present
+        
     - name: Download aws cli
       ansible.builtin.get_url:
         url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-        dest: "/tmp/awscliv2.zip"
+        dest: "/usr/local/bin/awscliv2.zip"
         mode: 755
+      become: yes
 
     - name: Unzip installer
       ansible.builtin.unarchive:
