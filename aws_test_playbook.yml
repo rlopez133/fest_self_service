@@ -4,7 +4,6 @@
   collections:
     - amazon.aws
   tasks:
-    
     - name: Download aws cli
       ansible.builtin.get_url:
         url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
