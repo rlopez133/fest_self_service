@@ -7,10 +7,7 @@
         ### EC2 Instance ###
         -----------------------------------
         `Name`: "{{ paths['instances[0].tags.Name'] }}"
-        `Public IP`: "{{ paths['instances[0].public_ip }}"
-
-        Login via:
-        ssh -i /path/to/priv-key ec2-user@{{ paths['instances[0].public_ip }}
+        `Public IP`: "{{ paths['instances[0].public_ip'] }}"
         -----------------------------------
     channel: '#ansiblefest-demo'
     color: good
