@@ -7,12 +7,10 @@
         ### EC2 Instance ###
         -----------------------------------
         `Name`: "{{ paths['instances[0].tags.Name'] }}"
-        `Public IP`: "{{ paths['instances[0].public_ip'] }}"
+        `Public IP`: "{{ paths['instances[0].public_ip_address'] }}"
         -----------------------------------
     channel: '#ansiblefest-demo'
     color: good
     username: 'AnsibleFest-bot'
     link_names: 0
     parse: 'none'
-
-
