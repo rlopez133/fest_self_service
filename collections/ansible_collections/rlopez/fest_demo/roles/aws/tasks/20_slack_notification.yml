@@ -6,7 +6,6 @@
     msg: |
         ### EC2 Instance ###
         -----------------------------------
-        `Details`: {{ ec2_details }}
         `Name`: {{ paths['instances[0].tags.Name'] }}
         `Public IP`: {{ paths['instances[0].public_ip }}
 
