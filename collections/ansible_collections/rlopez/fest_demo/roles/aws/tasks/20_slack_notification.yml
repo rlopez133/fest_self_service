@@ -1,0 +1,18 @@
+---
+
+- name: Notify Slack that EC2 instance has been created
+  community.general.slack:
+    token: "{{ token }}"
+    msg: |
+        ### EC2 Instance ###
+        -----------------------------------
+        ``
+        `Details`: {{ ec2_details }}
+        -----------------------------------
+    channel: '#ansiblefest-demo'
+    color: good
+    username: 'AnsibleFest-bot'
+    link_names: 0
+    parse: 'none'
+
+
