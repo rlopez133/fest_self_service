@@ -35,9 +35,13 @@
       sleep_schedule: "{{ sleep_schedule }}"
     vpc_subnet_id: "{{ subnet_id }}"
     network:
-      assign_public_ip: no
+      assign_public_ip: yes
   register: ec2_details
+
+- name: flatten object
+  ansible.builtin.set_fact:
+    paths: "{{ lookup('ansible.utils.to_paths', ec2_details) }}"
 
 - name: Debug info ec2 instance
   debug:
-    var: ec2_details
+    var: paths
