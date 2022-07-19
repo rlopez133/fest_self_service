@@ -5,7 +5,7 @@
     token: "{{ token }}"
     msg: |
        ```
-        #### VolumeSnapshot created within {{ my_namespace }} my_namespace ####
+        #### VolumeSnapshot created within {{ my_namespace }} namespace ####
         ----------------------------------------------------
         Namespace: {{ my_namespace }}
 
