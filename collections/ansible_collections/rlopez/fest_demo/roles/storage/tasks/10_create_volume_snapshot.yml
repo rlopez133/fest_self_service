@@ -25,3 +25,14 @@
         source:
           persistentVolumeClaimName: "{{ item }}"
   loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
+
+- name: Get the volumesnapshots in a namesapce and record the values
+  kubernetes.core.k8s_info:
+    api_version: v1
+    kind: VolumeSnapshot
+    namespace: "{{ my_namespace }}"
+  register: volumesnapshot
+
+- name: debug
+  debug:
+    var: volumesnapshot
