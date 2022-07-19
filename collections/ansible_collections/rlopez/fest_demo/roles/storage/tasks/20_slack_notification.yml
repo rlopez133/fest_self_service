@@ -4,12 +4,12 @@
   community.general.slack:
     token: "{{ token }}"
     msg: |
-        #### VolumeSnapshot created within {{ namespace }} namespace ####
+        #### VolumeSnapshot created within {{ my_namespace }} my_namespace ####
         ----------------------------------------------------
-        Namespace: {{ namespace }}
+        Namespace: {{ my_namespace }}
 
         View your volume snapshots via
-        oc get volumesnapshot -n {{ namespace }}
+        oc get volumesnapshot -n {{ my_namespace }}
 
         Need Assistance?
         <https://example.com|Open a ticket>
