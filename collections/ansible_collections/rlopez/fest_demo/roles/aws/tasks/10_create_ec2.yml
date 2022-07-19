@@ -19,6 +19,7 @@
   amazon.aws.ec2_instance:
     name: "{{ my_name }}"
     key_name: "{{ key }}"
+    wait: yes
     instance_type: "{{ instance_type }}"
     image_id: "{{ image_id }}"
     region: "{{ region }}"
