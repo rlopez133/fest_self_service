@@ -8,8 +8,6 @@
         #### VolumeSnapshot created ####
         ----------------------------------------------------
         Namespace: {{ my_namespace }}
-        VolumeSnapShots within {{ my_namespace }}:
-        {{ volumesnapshot_paths['resources[*].metadata.name'] }} 
 
         View your volume snapshots via OpenShift:
         oc get volumesnapshot -n {{ my_namespace }}
