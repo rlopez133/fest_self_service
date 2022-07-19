@@ -24,4 +24,5 @@
         volumeSnapshotClassName: "{{ volumesnapshotclass | community.general.json_query('resources[0].metadata.name') }}"
         source:
           persistentVolumeClaimName: "{{ item }}"
+    force: true
   loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
