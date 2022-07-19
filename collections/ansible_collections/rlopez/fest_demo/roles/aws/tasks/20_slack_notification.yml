@@ -4,7 +4,7 @@
   community.general.slack:
     token: "{{ token }}"
     msg: |
-        #### EC2 Instance for {{ paths['instances[0].tags.owner' }} ####
+        #### EC2 Instance for {{ paths['instances[0].tags.owner'] }} ####
         ----------------------------------------------------
         Name: {{ paths['instances[0].tags.Name'] }}
         Public IP: {{ paths['instances[0].public_ip_address'] }}
