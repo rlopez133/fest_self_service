@@ -43,6 +43,7 @@
     region: "{{ region }}"
     filters:
       "tag:Name": "{{ my_name }}"
+  until: paths['instances[0].public_ip_address'] is defined
   register: ec2_node_info
     
 - name: flatten object
