@@ -25,7 +25,3 @@
         source:
           persistentVolumeClaimName: "{{ item }}"
   loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
-
-
-
-#{{ ansible_date_time.iso8601_basic_short }}
