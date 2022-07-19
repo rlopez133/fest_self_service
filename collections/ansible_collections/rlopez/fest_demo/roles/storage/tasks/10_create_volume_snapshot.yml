@@ -14,6 +14,7 @@
 - name: Create a VolumeSnapshotClass for each volume
   kubernetes.core.k8s:
     state: present
+    force: yes
     definition:
       apiVersion: snapshot.storage.k8s.io/v1
       kind: VolumeSnapshot
@@ -24,5 +25,4 @@
         volumeSnapshotClassName: "{{ volumesnapshotclass | community.general.json_query('resources[0].metadata.name') }}"
         source:
           persistentVolumeClaimName: "{{ item }}"
-    force: yes
   loop: "{{ pvc | community.general.json_query('resources[*].metadata.name') }}"
