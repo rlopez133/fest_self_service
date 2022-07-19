@@ -1,0 +1,21 @@
+---
+
+- name: Notify Slack that VolumeSnapshot has been created
+  community.general.slack:
+    token: "{{ token }}"
+    msg: |
+        #### VolumeSnapshot created within {{ namespace }} namespace ####
+        ----------------------------------------------------
+        Namespace: {{ namespace }}
+
+        View your volume snapshots via
+        oc get volumesnapshot -n {{ namespace }}
+
+        Need Assistance?
+        <https://example.com|Open a ticket>
+        ----------------------------------------------------
+    channel: '#ansiblefest-demo'
+    color: good
+    username: 'AnsibleFest-bot'
+    link_names: 0
+    parse: 'none'
