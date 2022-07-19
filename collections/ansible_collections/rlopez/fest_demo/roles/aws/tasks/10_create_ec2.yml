@@ -43,7 +43,7 @@
     region: "{{ region }}"
     filters:
       "tag:Name": "{{ my_name }}"
-  until: paths['instances[0].public_ip_address'] is defined
+  until: ec2_node_info.instances[0].public_ip_address is defined
   delay: 5
   retries: 5
   register: ec2_node_info
