@@ -14,7 +14,6 @@
 - name: Create a VolumeSnapshotClass for each volume
   kubernetes.core.k8s:
     state: present
-    force: yes
     definition:
       apiVersion: snapshot.storage.k8s.io/v1
       kind: VolumeSnapshot
