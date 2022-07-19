@@ -20,6 +20,7 @@
     name: "{{ my_name }}"
     key_name: "{{ key }}"
     wait: yes
+    state: running
     instance_type: "{{ instance_type }}"
     image_id: "{{ image_id }}"
     region: "{{ region }}"
@@ -43,9 +44,9 @@
     region: "{{ region }}"
     filters:
       "tag:Name": "{{ my_name }}"
-  until: ec2_node_info.instances[0].public_ip_address is defined
-  delay: 5
-  retries: 5
+  #until: ec2_node_info.instances[0].public_ip_address is defined
+  #delay: 5
+  #retries: 5
   register: ec2_node_info
     
 - name: flatten object
