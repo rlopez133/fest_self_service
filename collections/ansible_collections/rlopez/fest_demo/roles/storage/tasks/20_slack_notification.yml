@@ -4,6 +4,7 @@
   community.general.slack:
     token: "{{ token }}"
     msg: |
+       ```
         #### VolumeSnapshot created within {{ my_namespace }} my_namespace ####
         ----------------------------------------------------
         Namespace: {{ my_namespace }}
@@ -14,6 +15,7 @@
         Need Assistance?
         <https://example.com|Open a ticket>
         ----------------------------------------------------
+        ```
     channel: '#ansiblefest-demo'
     color: good
     username: 'AnsibleFest-bot'
