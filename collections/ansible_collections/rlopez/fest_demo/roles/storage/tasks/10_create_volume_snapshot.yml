@@ -37,6 +37,6 @@
   ansible.builtin.set_fact:
     volumesnapshot_paths: "{{ lookup('ansible.utils.to_paths', volumesnapshot) }}"
 
-- name: debug
+- name: Capture all the volumesnapshots
   debug:
-    var: paths
+    msg: "{{ volumesnapshot_paths['resources[*].metadata.name'] }}"
